@@ -1,7 +1,7 @@
 import Profile from "../../../db/models/profile.js"
 
 const updateProfileIntoDb = async (payload) => {
-  const isProfileExist = await Profile.findOne({ userId: payload.userId });
+  const isProfileExist = await Profile.findOne({where: { userId: payload.userId }});
   let result;
   if (isProfileExist) {
     await Profile.update(payload, {where: {id: isProfileExist.id}})

@@ -26,6 +26,8 @@ const getMyProfile = catchAsync(async (req, res) => {
 })
 
 const getUserProfile = catchAsync(async (req, res) => {
+    
+  console.log("pro controller got hit")
     const result = await profileServices.getMyProfileFromDb(
         req.params.userId
     );
